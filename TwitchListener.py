@@ -33,9 +33,12 @@ client = Client(
 def insert(user, channel, content):
     query = """
             INSERT INTO Content (username, channel, message) VALUES (?, ?, ?)
-            """
-    
-    cursor.execute(query, user, channel, content)
+            """.lower()
+
+    if 'drop' in query or 'alter' in query:
+        print("Query ignored due to possible SQL Injection")
+    else:
+        cursor.execute(query, user, channel, content)
 
 # Actual listener which stores what it hears to a txt file
 @bot.event
@@ -48,6 +51,7 @@ async def event_message(ctx):
     print(content)
 
     insert(name, channel, content)
+    conn.commit()
     
     await bot.handle_commands(ctx)
 
@@ -61,5 +65,5 @@ if __name__ == '__main__':
                       'Trusted_Connection=yes;', autocommit=True)
 
     cursor = conn.cursor()
-
+    
     bot.run()
