@@ -12,5 +12,5 @@ CREATE TABLE Channels (
 CREATE TABLE Content (
 	[Channel] VARCHAR(32) NOT NULL,
 	[Username] VARCHAR(32) NOT NULL,
-	[Message] VARCHAR(32) NOT NULL,
+	[Message] VARCHAR(500) NOT NULL,
 )
