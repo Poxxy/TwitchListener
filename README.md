@@ -1,5 +1,5 @@
 # TwitchListener
-Listens in on Twitch chats and stores data into SQL Table
+Listens in on Twitch chats and stores data into SQL Table. Provides chat commands that give useful feedback like how many messages you have in the channel, who has the most, etc.
 
 # Install/Setup
 
