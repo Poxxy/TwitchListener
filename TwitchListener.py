@@ -15,6 +15,7 @@ NAME = credentials.NAME
 TWITCH_TOKEN = credentials.TWITCH_TOKEN
 TWITCH_CLIENT_ID = credentials.TWITCH_CLIENT_ID
 TWITCH_CLIENT_SECRET = credentials.TWITCH_CLIENT_SECRET
+ADMIN = credentials.ADMIN
 
 bot = commands.Bot(
     irc_token=TWITCH_TOKEN,
@@ -35,10 +36,13 @@ def insert(user, channel, content):
             INSERT INTO Content (username, channel, message) VALUES (?, ?, ?)
             """.lower()
 
-    if 'drop' in query or 'alter' in query:
-        print("Query ignored due to possible SQL Injection")
-    else:
-        cursor.execute(query, user, channel, content)
+    if 'drop' in query or 'alter' in query or 'delete' in query:
+        print("Replacing scary words.")
+        query = query.replace('drop','dr0p')
+        query = query.replace('alter','alt3r')
+        query = query.replace('delete','d3l3t3')
+
+    cursor.execute(query, user, channel, content)
 
 def content_return(user, channel):
     query = """
@@ -49,6 +53,18 @@ def content_return(user, channel):
     result = cursor.fetchall()[0][0]
     return result
 
+def content_top(channel):
+    query = """
+            SELECT TOP 3 username, COUNT(*) 
+            FROM content
+            WHERE channel = ?
+            GROUP BY username
+            ORDER BY 2 DESC
+            """.lower()
+    cursor.execute(query, channel)
+    result = cursor.fetchall()
+    return result
+
 
 # Actual listener which stores what it hears to a txt file
 @bot.event
@@ -56,9 +72,6 @@ async def event_message(ctx):
     name = str(ctx.author.name)
     channel = str(ctx.author.channel)
     content = str(ctx.content)
-    
-    print(name)
-    print(content)
 
     insert(name, channel, content)
     conn.commit()
@@ -75,17 +88,27 @@ async def message_count(ctx):
     mcount = content_return(user, channel)
     await ctx.send("{} you have {} messages in this channel.".format(user, mcount))
 
+# Command to show top 3 highest messengers.
+@bot.command(name='mtop')
+async def message_top(ctx):
+    time.sleep(.5)
+    if str(ctx.author.name) in ADMIN:
+        channel = str(ctx.author.channel)
+        mtop = content_top(channel)
+        await ctx.send("Top 3 users in this channel: {}".format(mtop))
+
 # Command to display github page.
 @bot.command(name='github')
 async def github(ctx):
     time.sleep(.5)
-    await ctx.send("You can find my source code on https://github.com/Poxxy/TwitchListener. Thanks!")
+    if str(ctx.author.name) in ADMIN:
+        await ctx.send("I'm made by waltzingstoic. You can find my source code on https://github.com/Poxxy/TwitchListener. Thanks!")
 
 if __name__ == '__main__':
     
     conn = pyodbc.connect('Driver={SQL Server};'
-                      'Server=servername;'
-                      'Database=dbname;'
+                      'Server=server;'
+                      'Database=db;'
                       'Trusted_Connection=yes;')
 
     cursor = conn.cursor()
