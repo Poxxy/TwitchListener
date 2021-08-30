@@ -95,7 +95,10 @@ async def message_top(ctx):
     if str(ctx.author.name) in ADMIN:
         channel = str(ctx.author.channel)
         mtop = content_top(channel)
-        await ctx.send("Top 3 users in this channel: {}".format(mtop))
+        top1 = mtop[0][0]
+        top2 = mtop[1][0]
+        top3 = mtop[2][0]
+        await ctx.send("Top 3 users in this channel: {}, {}, and {}".format(top1,top2,top3)
 
 # Command to display github page.
 @bot.command(name='github')
