@@ -33,12 +33,6 @@ def insert(user, channel, content):
             INSERT INTO Content (username, channel, message) VALUES (?, ?, ?)
             """.lower()
 
-    if 'drop' in query or 'alter' in query or 'delete' in query:
-        print("Replacing scary words.")
-        query = query.replace('drop','dr0p')
-        query = query.replace('alter','alt3r')
-        query = query.replace('delete','d3l3t3')
-
     cursor.execute(query, user, channel, content)
 
 
