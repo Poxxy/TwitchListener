@@ -6,7 +6,7 @@ from twitchio.client import Client
 
 import credentials
 
-import pyodbc 
+import psycopg2 
 
 CHANNEL = credentials.CHANNEL
 NAME = credentials.NAME
@@ -28,12 +28,9 @@ client = Client(
     client_secret=TWITCH_CLIENT_SECRET,
 )
 
-def insert(user, channel, content):
-    query = """
-            INSERT INTO Content (username, channel, message) VALUES (?, ?, ?)
-            """.lower()
-
-    cursor.execute(query, user, channel, content)
+def insert(user, channel, message):
+    
+    cursor.execute("""INSERT INTO "Content" (username, channel, message) VALUES (%s, %s, %s)""", (user, channel, message))
 
 
 # Actual listener which stores what it hears by inserting into the database
@@ -51,11 +48,16 @@ async def event_message(ctx):
 
 if __name__ == '__main__':
     
-    conn = pyodbc.connect('Driver={SQL Server};'
-                      'Server=yourserver;'
-                      'Database=yourdb;'
-                      'Trusted_Connection=yes;')
+    conn = psycopg2.connect(
+                      host='your_host',
+                      database='your_db',
+                      user='your_user',
+                      password='your_password')
 
     cursor = conn.cursor()
-
+    
     bot.run()
+
+    #Good practice to close out when done!
+    cursor.close()
+    conn.close()
