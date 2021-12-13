@@ -43,7 +43,8 @@ async def event_message(ctx):
     insert(name, channel, content)
     conn.commit()
     
-    await bot.handle_commands(ctx)
+    #Enable only if listening for commands.
+    #await bot.handle_commands(ctx)
 
 
 if __name__ == '__main__':
