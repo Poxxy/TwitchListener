@@ -10,3 +10,9 @@ Listens in on Twitch chats and stores data into SQL Table.
 5. Create your database/tables such as in table_creation.sql
 6. In the terminal type `python TwitchListener.py`
 7. You're done!
+
+# To Do
+
+1. Collect twitch content and insert into database
+2. Create automatic backup schedule to cloud storage
+3. Display data on web
