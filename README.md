@@ -17,8 +17,12 @@ Listens in on Twitch chats and stores data into SQL Table.
 
 This program uses PostgreSQL. If you wish to use a different database you'll likely need pyodbc instead of psycopg2. The the way it works is very similar and you can find in this repository the original TwitchListener.py which used pyodbc + SQL Server. 
 
+> Backups?
+
+You can create backups with [pg_dump](https://www.postgresql.org/docs/9.1/backup-dump.html). With pydrive you can move your backups to a Google Drive.
+
 # To Do
 
 1. ~~Collect twitch content and insert into database~~
-2. Create automatic backup schedule to cloud storage
+2. ~~Create automatic backup schedule to cloud storage~~
 3. Display data on web
