@@ -13,6 +13,6 @@ Listens in on Twitch chats and stores data into SQL Table.
 
 # To Do
 
-1. ~~Collect twitch content and insert into database
+1. ~~Collect twitch content and insert into database~~
 2. Create automatic backup schedule to cloud storage
 3. Display data on web
