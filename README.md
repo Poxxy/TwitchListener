@@ -11,6 +11,12 @@ Listens in on Twitch chats and stores data into SQL Table.
 6. In the terminal type `python TwitchListener.py`
 7. You're done!
 
+# FAQ
+
+> Can I use this with SQL Server/Ingres/Oracle/etc?
+
+This program uses PostgreSQL. If you wish to use a different database you'll likely need pyodbc instead of psycopg2. The the way it works is very similar and you can find in this repository the original TwitchListener.py which used pyodbc + SQL Server. 
+
 # To Do
 
 1. ~~Collect twitch content and insert into database~~
