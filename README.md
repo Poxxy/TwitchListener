@@ -19,7 +19,7 @@ This program uses PostgreSQL. If you wish to use a different database you'll lik
 
 > Backups?
 
-You can create backups with [pg_dump](https://www.postgresql.org/docs/9.1/backup-dump.html). With pydrive you can move your backups to a Google Drive.
+You can create backups with [pg_dump](https://www.postgresql.org/docs/9.1/backup-dump.html). With pydrive you can move your backups to a Google Drive. A simple backup python script is given as backupdb.py. You may need to add your user to postgres to run it without elevated permissions.
 
 # To Do
 
