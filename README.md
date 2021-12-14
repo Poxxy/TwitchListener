@@ -28,6 +28,9 @@ This program uses PostgreSQL. If you wish to use a different database you'll lik
 
 You can create backups with [pg_dump](https://www.postgresql.org/docs/9.1/backup-dump.html). With pydrive you can move your backups to a Google Drive. A simple backup python script is given as backupdb.py. You may need to add your user to postgres to run it without elevated permissions.
 
+> Displaying on web?
+As an example I use Flask to show messages and other info. You can similarly use your favorite tool to get data from your database and format it for a web page.
+
 # To Do
 
 1. ~~Collect twitch content and insert into database~~
