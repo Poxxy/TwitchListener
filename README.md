@@ -29,4 +29,5 @@ You can create backups with [pg_dump](https://www.postgresql.org/docs/9.1/backup
 
 1. ~~Collect twitch content and insert into database~~
 2. ~~Create automatic backup schedule to cloud storage~~
-3. Display data on web
+3. Display data on web with Flask
+4. Analyze with Spark
