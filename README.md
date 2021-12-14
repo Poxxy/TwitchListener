@@ -1,6 +1,9 @@
 # TwitchListener
 Listens in on Twitch chats and stores data into SQL Table. 
 
+## Example w/ Flask
+[!alt text](https://github.com/Poxxy/TwitchListener/blob/main/example1.png?raw=true)
+
 # Install/Setup
 
 1. Make sure you have python 3+ installed.
