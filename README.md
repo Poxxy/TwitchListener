@@ -2,7 +2,7 @@
 Listens in on Twitch chats and stores data into SQL Table. 
 
 ## Example w/ Flask
-[!alt text](https://github.com/Poxxy/TwitchListener/blob/main/example1.png?raw=true)
+![Basic Example](https://github.com/Poxxy/TwitchListener/blob/main/example1.png?raw=true)
 
 # Install/Setup
 
@@ -32,5 +32,5 @@ You can create backups with [pg_dump](https://www.postgresql.org/docs/9.1/backup
 
 1. ~~Collect twitch content and insert into database~~
 2. ~~Create automatic backup schedule to cloud storage~~
-3. Display data on web with Flask
+3. ~~Display data on web with Flask~~
 4. Analyze with Spark
