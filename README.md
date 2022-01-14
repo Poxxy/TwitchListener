@@ -20,7 +20,7 @@ Listens in on Twitch chats and stores data into SQL Table.
 
 With a twitch account set up you can get the information for credentials.py. Once that is set up, running the program essentially makes the account set up read the twitch chat of any channel you've set in your channels list. Each time a message occurs, it gets inserted into your database. You technically only need one table set up, such as a content table storing the username, channel (as in, what channel was the message on), and message. Optionally you can (and shoulder) include content_id and set up other tables to track users and channels. 
 
-> Can I use this with SQL Server/Ingres/Oracle/etc?
+> Can I use this with SQL Server/Oracle/etc?
 
 This program uses PostgreSQL. If you wish to use a different database you'll likely need pyodbc instead of psycopg2. The the way it works is very similar and you can find in this repository the original TwitchListener.py which used pyodbc + SQL Server. 
 
