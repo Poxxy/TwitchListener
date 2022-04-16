@@ -8,4 +8,4 @@ twitchio==1.2.1
 typing-extensions==3.7.4.3
 websockets==8.1
 yarl==1.6.3
-psycopg2==2.93
+psycopg2==2.9.3
