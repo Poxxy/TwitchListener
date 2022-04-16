@@ -1,5 +1,5 @@
 # TwitchListener
-Listens in on Twitch chats and stores data into SQL Table. 
+Listens in on Twitch chats using https://twitchio.dev/en/latest/ and stores data into SQL Table using https://www.postgresql.org/. 
 
 ## Example w/ Flask
 ![Basic Example](https://github.com/Poxxy/TwitchListener/blob/main/example1.png?raw=true)
