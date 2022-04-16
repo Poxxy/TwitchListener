@@ -12,5 +12,6 @@ CREATE TABLE Content (
 	ContentID serial PRIMARY KEY,
  	Channel VARCHAR(50) UNIQUE NOT NULL,
 	Username VARCHAR(50) UNIQUE NOT NULL,
-	Message VARCHAR(500) NOT NULL
+	Message VARCHAR(500) NOT NULL,
+	Time timestamp NOT NULL
 );
