@@ -13,7 +13,7 @@ db_user = os.getenv('db_user')
 db_pass = os.getenv('db_pass')
 
 #channels to join
-bot_channels = ['waltzingstoic']
+bot_channels = ['channel1','channel2','etc']
 
 
 class Bot(commands.Bot):
