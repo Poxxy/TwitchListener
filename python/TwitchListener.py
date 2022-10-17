@@ -13,7 +13,11 @@ db_user = os.getenv('db_user')
 db_pass = os.getenv('db_pass')
 
 #channels to join
-bot_channels = ['channel1','channel2','etc']
+bot_channels = ['waltzingstoic',
+'lilithomen', 'hens333', 'yerv',
+'dowsey', 'classed', 'tru3ta1ent',
+'otzdarva','ev3ntic','improbzz',
+'coconutrts','angrypug']
 
 
 class Bot(commands.Bot):
@@ -42,7 +46,8 @@ class Bot(commands.Bot):
             return
         
         name = str(message.author.name)
-        channel = str(message.author.channel)
+        raw_channel = str(message.author.channel)
+        channel = raw_channel.split(': ')[1].replace('>','') #remove the <channel name: channel> style with just channel
         content = str(message.content)
         timestamp = str(message.timestamp)
 
