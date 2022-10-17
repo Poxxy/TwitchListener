@@ -17,7 +17,9 @@ bot_channels = ['waltzingstoic',
 'lilithomen', 'hens333', 'yerv',
 'dowsey', 'classed', 'tru3ta1ent',
 'otzdarva','ev3ntic','improbzz',
-'coconutrts','angrypug']
+'coconutrts','angrypug', 'thejrm_',
+'potatolegiontv', 'aryun', 'spooknjukes',
+'scottjund','esskay_', 'knightlight']
 
 
 class Bot(commands.Bot):
